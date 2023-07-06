@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.background {
+    background-color:#e7eef1;
+}
+
 .topbar {
   display: flex;
   justify-content: center;
@@ -164,4 +168,99 @@
         
         }
     }   
+}
+
+.deal_main {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+    
+    .deal_container {
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        flex-direction: row;
+        background-color: white;
+        width: 90%;
+        padding: 10px;
+
+        .name_timer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+     
+
+
+        .deal_title{
+            display: flex;
+            font-family: Roboto,Arial,sans-serif;
+            font-weight:700;
+            font-size: 20px;
+            flex-direction: row;
+            width: fit-content;
+    
+        }
+        .timer {
+            margin-left: 30px;
+            i{
+                font-size: 22px;
+                color: rgb(146, 88, 88);  
+            }
+            .time{
+                margin-left: 10px;
+                font-family: Roboto,Arial,sans-serif;
+                font-size: 14px; 
+                font-weight: 400;                     
+                color: rgba(0, 0, 0, 0.4);
+            }
+    
+
+        }
+    }
+        .view_btn {
+            display: flex;
+            align-items: center;
+            min-width:auto;
+
+            button {
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.1px;
+            border: none;
+            background-color: #2874f0;
+            color: rgb(246, 247, 250);
+            padding: 5px 20px 5px 20px;
+            border-radius: 2px;
+            }
+            button:focus {
+            outline: none;
+            border: 2px solid white;
+            }
+
+        }
+
+    }
+    
+}
+
+.products_main {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+    
+    .product_container {
+        display: flex;
+        background-color: white;
+        width: 90%;
+        padding: 20px;
+        margin-top: 15px;
+
+
+    }
+
 }
