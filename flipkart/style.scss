@@ -1,300 +1,7 @@
-// * {
-//   box-sizing: border-box;
-// }
-
-// .background {
-//     background-color:#e7eef1;
-// }
-
-// .topbar {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: #2874f0;
-//   width: 100%;
-
-//   .flipexplore {
-//     flex-direction: column;
-//     justify-content: center;
-//     p {
-//       font-size: 30px;
-//       font-style: italic;
-//       font-weight: 600;
-//       color: white;
-//       font-family: Roboto, Arial, sans-serif;
-//     }
-
-//     div {
-//       font-size: 16px;
-//       font-style: italic;
-//       margin-top: -25px;
-//       align-self: center;
-//     }
-//   }
-
-//   .search {
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-//     margin-left: 20px;
-//     min-width: fit-content;
-//     min-width: 304px;
-
-//     input {
-//       text-shadow: 1px black;
-//       font-size: 0.867em;
-//       background-color: rgb(246, 247, 250);
-//       height: 2.5em;
-//       border: none;
-//       border-radius: 2px;
-//       padding: 0 20px 0 18px;
-//       width: 590px;
-//       color: #303233;
-//       letter-spacing: 0.2px;
-//     }
-
-//     i {
-//       margin-left: -30px;
-//       font-size: 1em;
-//       color: #2874f0;
-//     }
-//   }
-
-//   .login {
-//     display: flex;
-//     align-items: center;
-//     margin-left: 50px;
-//     margin-right: 20px;
-//     min-width: fit-content;
-
-//     button {
-//       font-family: Roboto, Arial, sans-serif;
-//       font-size: 16px;
-//       font-weight: 500;
-//       letter-spacing: 0.1px;
-//       border: none;
-//       color: #2874f0;
-//       background-color: rgb(246, 247, 250);
-//       padding: 5px 40px 5px 40px;
-//       border-radius: 2px;
-//     }
-//     button:focus {
-//       outline: none;
-//       border: 2px solid white;
-//     }
-//   }
-
-//   .add_cart {
-//     display: flex;
-//     max-width: fit-content;
-//     justify-content: center;
-//     flex-direction: row;
-//     height: auto;
-//     align-items: center;
-//     padding: 10px;
-//     margin: 5px;
-//     i {
-//       display: flex;
-//     }
-
-//     .cart_name {
-//       display: flex;
-//       color: white; 
-//       font-weight: bold;
-//       font-size: 16px;
-//       font-family: "Roboto", sans-serif;
-//       justify-content: center;
-//       padding: 5px;
-//     }
-//   }
-// }
-
-
-
-// .categories{
-//   display:flex;
-//   width: 100%;
-//   align-items: center;
-//   justify-content: center;
-//   background: white;
-//   border-bottom: 0.5px solid rgba(117, 110, 110, 0.411);
-//   margin-bottom: 20px;
-//   overflow-x: auto;
-//   .spaces{
-
-//       position: sticky;
-//       width: 100%;
-//       display: flex;
-//       flex-direction: row;
-//       justify-content: space-evenly;
-//       max-width: 1280px; 
-
-//       .category{
-//           display: block;
-//           a{
-
-//               padding: 12px 8px 12px 8px;
-//               align-items: center;
-//               display: flex;
-//               flex-direction: column;
-//               text-decoration: none;
-//               width: fit-content;
-//               color: #303233;
-//               img{
-//                   padding-top: 4px;
-//                   height: 64px;
-//                   width: 64px;
-//               }
-//               .txt{
-//                   display: flex;
-//                   padding-top: 8px;
-//                   font-family:Roboto,Arial,sans-serif;
-//                   font-weight: 500;
-//                   font-size: 14px;
-//                   flex-wrap: nowrap;
-//                   flex-direction: row;
-//                   align-items: center;
-//                   width: fit-content;
-//                   i{
-                      
-//                       font-size: 0.6em;
-//                       padding-left: 2px;    
-                      
-//                   }
-//               }
-//           }
-//           a:hover{
-//               color:#2874f0;
-//           }
-         
-//       }
-      
-          
-     
-//   }
-  
- 
-// }
-
-// .deal_main {
-//     display: flex;
-//     width: 100%;
-//     align-items: center;
-//     justify-content: center;
-    
-    
-//     .deal_container {
-//         display: flex;
-//         align-items: center;
-//         justify-content:space-between;
-//         flex-direction: row;
-//         background-color: white;
-//         width: 90%;
-//         padding: 10px;
-
-//         .scroll_right{
-
-//           display: flex;
-//           padding: 40px 13px;
-//           background: #ffffff;
-//           color: #000000c4;
-//           position: relative;
-//           margin-right: -44px;
-//           align-items: center;
-//           border-radius: 4px 0 0 4px;
-//           justify-content: center;
-//           box-shadow: 1px 2px 10px -1px rgb(0 0 0 / 30%);
-//           i{
-//               font-size: 30px;
-//           }
-          
-//       }
-
-//         .name_timer {
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-     
-
-
-//         .deal_title{
-//             display: flex;
-//             font-family: Roboto,Arial,sans-serif;
-//             font-weight:700;
-//             font-size: 20px;
-//             flex-direction: row;
-//             width: fit-content;
-    
-//         }
-//         .timer {
-//             margin-left: 30px;
-//             i{
-//                 font-size: 22px;
-//                 color: rgb(146, 88, 88);  
-//             }
-//             .time{
-//                 margin-left: 10px;
-//                 font-family: Roboto,Arial,sans-serif;
-//                 font-size: 14px; 
-//                 font-weight: 400;                     
-//                 color: rgba(0, 0, 0, 0.4);
-//             }
-    
-
-//         }
-//     }
-//         .view_btn {
-//             display: flex;
-//             align-items: center;
-//             min-width:auto;
-
-//             button {
-//             font-family: Roboto, Arial, sans-serif;
-//             font-size: 12px;
-//             font-weight: 500;
-//             letter-spacing: 0.1px;
-//             border: none;
-//             background-color: #2874f0;
-//             color: rgb(246, 247, 250);
-//             padding: 5px 20px 5px 20px;
-//             border-radius: 2px;
-//             }
-//             button:focus {
-//             outline: none;
-//             border: 2px solid white;
-//             }
-
-//         }
-
-//     }
-    
-// }
-
-// .products_main {
-//     display: flex;
-//     width: 100%;
-//     align-items: center;
-//     justify-content: center;
-    
-    
-//     .product_container {
-//         display: flex;
-//         background-color: white;
-//         width: 90%;
-//         padding: 20px;
-//         margin-top: 15px;
-
-
-//     }
-
-// }
-
-
-
 *{
   padding: 0;
   box-sizing:border-box;
-  transition-delay: 4ms;
+  // transition-delay: 4ms;
 }
 body{
   display: block;
@@ -306,9 +13,7 @@ body{
   overflow-y: auto;
   background: rgba(224, 231, 245, 0.596);
 }
-header{
-
-
+.topbar{
   top: 0;
   width: 100%;
   height:56px;
@@ -359,7 +64,7 @@ header{
       input{
           text-shadow: 1px black;
           font-size: 0.867em;
-          background-color: azure;
+          background-color: white;
           height: 2.5em;
           border: none;
           border-radius: 2px;
@@ -399,26 +104,11 @@ header{
       }
   
   }
-  .seller{
-      display: flex;
-      width: fit-content;
-      margin:0px 20px 0px 20px ;
-      align-items: center;
-      min-width: fit-content;
-      a{
-          font-family: Roboto,Arial,sans-serif;
-          text-decoration: none;
-          font-weight: 500;
-          color: white;
-      }
-  }
-
+  
   .more{
       display: flex;
       align-items: center;
       color:white;
-      
-
       .txt{
           font-family:  Roboto,Arial,sans-serif;
           padding-right: 5px;
@@ -452,7 +142,7 @@ header{
 
 }
 
-.catagories{
+.categories{
   display:flex;
   width: 100%;
   align-items: center;
@@ -461,7 +151,7 @@ header{
   border-bottom: 0.5px solid rgba(117, 110, 110, 0.411);
   margin-bottom: 20px;
   overflow-x: auto;
-  .spacing{
+  .gap{
 
       position: sticky;
       width: 100%;
@@ -470,7 +160,7 @@ header{
       justify-content: space-evenly;
       max-width: 1280px; 
 
-      .catagory{
+      .category{
           display: block;
           a{
 
@@ -572,7 +262,7 @@ header{
               padding:10px 20px 10px 15px;
 
 
-              .left{
+              .heading_name{
                   padding-top: 5px;
                   display: flex;
                   min-width: fit-content;
@@ -581,13 +271,6 @@ header{
                   letter-spacing: .2px;
                   flex-direction: column;
 
-                  .shop_now{
-                      display: flex;
-                      font-size: 12px;
-                      padding: 5px 0px 0px 0px;
-                      color: #00000046;
-                      font-weight: 500;
-                  }
               }
 
               .timer{
@@ -605,7 +288,7 @@ header{
                   }
               }
 
-              .end{
+              .view_btn{
                   display: flex;
                   margin-left: auto;
                   button{
@@ -673,6 +356,10 @@ header{
                       font-size: 12px;
                       color: green;
 
+                      i{
+                        font-size: 12px;
+                      }
+
                   }
                   .division{
                       font-family: Roboto,Arial,sans-serif;
@@ -712,9 +399,8 @@ header{
  
   
 
-  .offer{
+  .ad{
       display: flex;
-      
       width: fit-content;
       margin-left: auto;
       min-width: fit-content; 
