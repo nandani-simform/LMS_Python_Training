@@ -45,10 +45,6 @@ body {
   color: #ffe500;
   font-weight: 500;
 }
-.topbar .flipkart:hover {
-  text-decoration: underline;
-  text-decoration-color: #ffe500;
-}
 .topbar .search {
   display: flex;
   flex-direction: row;
@@ -61,7 +57,7 @@ body {
 .topbar .search input {
   text-shadow: 1px black;
   font-size: 0.867em;
-  background-color: azure;
+  background-color: white;
   height: 2.5em;
   border: none;
   border-radius: 2px;
@@ -161,8 +157,8 @@ body {
 }
 .categories .gap .category a img {
   padding-top: 4px;
-  height: 64px;
-  width: 64px;
+  max-height: 64px;
+  max-width: 64px;
 }
 .categories .gap .category a .txt {
   display: flex;

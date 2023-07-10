@@ -45,11 +45,6 @@ body{
       }
 
   }
-  .flipkart:hover{
-      
-      text-decoration: underline;
-      text-decoration-color: #ffe500;
-  }
   .search{
       
       display:flex;
@@ -173,8 +168,8 @@ body{
               color: #303233;
               img{
                   padding-top: 4px;
-                  height: 64px;
-                  width: 64px;
+                  max-height: 64px;
+                  max-width: 64px;
               }
               .txt{
                   display: flex;
