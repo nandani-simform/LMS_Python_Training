@@ -1,9 +1,7 @@
 This branch will demonstrate LMS git practical with git commands with proper description.
 
-1. PULL and MERGE
-    -> MERGE:   It is used to merge two branches locally. (suppose B is getting merged in A)
-                For this checkout to branch A
-                    git merge B
+1. PULL and MERGE:
+    -> MERGE: It is used to merge two branches locally. (suppose B is getting merged in A) For this checkout to branch A then run, git merge B
 
                     git checkout git_practical
                     git merge git_practical2
@@ -18,8 +16,9 @@ This branch will demonstrate LMS git practical with git commands with proper des
 
 
 2. AMEND: Amending a commit is a way to modify the most recent commit we have made in our current branch. This can be helpful if yowe need to edit the commit message or if we forgot to include changes in the commit. 
+                    
                     git commit --amend
-                Text editor will open, edit the commit messge then save it. To chow on github push it -
+                Text editor will open, edit the commit message then save it. To show on github push it -
                     git push --force origin git_practical2
 
 
@@ -39,6 +38,7 @@ This branch will demonstrate LMS git practical with git commands with proper des
                     git push --force origin git_practical
 
 4. RESET: It is used to delete commit from a branch.
+
                     git reset --hard HEAD~1 (delete latest commit)
                     git reset --hard HEAD~N (delete N-th latest commit)
                     git reset --hard <commit-id> (delete by hash code)
