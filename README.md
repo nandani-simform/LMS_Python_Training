@@ -1,4 +1,4 @@
-This branch will demonstrate LMS git practical with git commands with proper description.
+This branch will demonstrate LMS git practical with git commands and their proper description.
 
 1. PULL and MERGE:
     -> MERGE: It is used to merge two branches locally. (suppose B is getting merged in A) For this checkout to branch A then run, git merge B
@@ -47,7 +47,7 @@ This branch will demonstrate LMS git practical with git commands with proper des
                     git push origin git_practical
 
 
-5. REBASE: We can take all the changes that were committed on one branch and replay them on a different branch.
+5. REBASE: We can take all the changes that were committed on one branch and reapply them on a different branch.
             
                 commit changes in git_practical branch
                     git checkout git_practical2
@@ -56,11 +56,14 @@ This branch will demonstrate LMS git practical with git commands with proper des
                     git checkout git_practical
                     git rebase git_practical2 (resolve merge conflicts in merge editor if have)
 
-                This command is used to continue with the changes we made
+                Restart the rebasing process after having resolved a merge conflict.
                     git rebase --continue  
 
-                If we want to skip the change, we can skip also
+                Restart the rebasing process by skipping the current patch.
                     git rebase --skip
+
+                Abort the rebase operation and reset HEAD to the original branch. 
+                    git rebase --abort
 
 
 
