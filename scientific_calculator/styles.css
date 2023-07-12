@@ -1,0 +1,13 @@
+#body {
+  background-color: rgb(167, 163, 159);
+}
+
+.container {
+  background-color: rgb(231, 216, 196);
+}
+
+.row {
+  border: 2px;
+  border-width: 1px;
+  border-color: black;
+}/*# sourceMappingURL=styles.css.map */
