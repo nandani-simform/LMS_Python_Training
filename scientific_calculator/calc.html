@@ -15,8 +15,11 @@
     <link rel=”stylesheet”
     href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css”
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+
   </head>
-  <body id="body">
+  <body>
     <div
       class="container-fluid d-flex justify-content-center align-items-center"
       style="height: 100vh"
@@ -24,22 +27,29 @@
       <div style="width: max-content">
         <div class="container-fluid p-2 bg-dark bg-gradient">
           <div class="d-flex justify-content-center align-items-center test">
-            <p class="fw-bold fs-1 text-white">Scientific Calculator </p>
+            <p class="fw-bold fs-1 text-white">Scientific Calculator</p>
+            
           </div>
+          <p id="demo"></p>
           <div class="container-md text-center mt-4">
-            <div class="row pb-1 " style="height: 75px;">
-              <input class="form-control " type="text" placeholder="0" readonly>
-
+            <div class="row pb-2">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="0"                
+              />
             </div>
 
             <div class="row pb-1 grid gap-1">
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">MC</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">MR</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">M+</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">M+</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">MS</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">MC</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">MR</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">M+</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">M+</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">MS</div>
             </div>
             <div class="row pb-1 grid gap-1">
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">Trigonometry</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">Function</div>
               <!-- <div class="dropdown col">
                 <button
                   class="btn rounded-1 shadow-sm bg-dark-subtle dropdown-toggle"
@@ -57,86 +67,73 @@
                   <a class="dropdown-item" href="#">tan</a>
                 </div>
               </div> -->
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">
-                Trigonometry
-              </div>  
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">
-                Function
-              </div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">
-                2<sup>nd</sup>
-              </div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">π</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">e</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">C</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">
-                <img
-                  src="assets/clear.png"
-                  alt="backspace"
-                  style="height: 20px"
-                />
-              </div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">2<sup style="padding-left: px;">nd</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">π</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">e</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">C</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle" data-type="bs"><i class="fa-solid fa-delete-left"></i></div>
+              
+              <!-- <img src="assets/clear.png" alt="backspace" style="height: 20px"/> -->
+              <!-- <i class="bi bi-backspace-fill"></i> -->
+              <!-- <i class="fa-solid fa-delete-left"></i> -->
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">
-                x<sup>2</sup>
-              </div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">1/x</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">|x|</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">exp</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">mod</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">x2</sup></div>
+              <!-- <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">x<sup style="padding-left: 2px;">2</sup></div> -->
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">1/x</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">|x|</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">exp</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">mod</div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">x</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">(</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">)</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">n!</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">÷</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">x2R</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">(</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">)</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">n!</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">/</div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">
-                x<sup>y</sup>
-              </div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">7</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">8</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">9</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">×</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">x<sup style="padding-left: 2px;">y</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">7</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">8</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">9</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">*</div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">
-                10<sup>x</sup>
-              </div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">4</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">5</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">6</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">-</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">10P</div>
+              <!-- <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">10<sup style="padding-left: 2px;">x</sup></div> -->
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">4</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">5</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">6</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">-</div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">log</div>
-              <div id="one" class="col p-2 rounded-1 shadow-sm bg-light">1</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">2</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">3</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">+</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">log</div>
+              <div class="col btn btn p-2 rounded-1 shadow-sm bg-light">1</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">2</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">3</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">+</div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col p-2 rounded-1 shadow-sm bg-dark-subtle">ln</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">+/-</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">0</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-light">.</div>
-              <div class="col p-2 rounded-1 shadow-sm bg-danger-subtle">=</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">ln</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">+/-</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">0</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light">.</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-danger-subtle">=</div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script scr="script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
