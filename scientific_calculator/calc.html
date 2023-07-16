@@ -25,8 +25,8 @@
       style="height: 100vh"
     >
       <div style="width: max-content">
-        <div class="container-fluid p-2 bg-dark bg-gradient">
-          <div class="d-flex justify-content-center align-items-center test">
+        <div class="container-fluid p-2 bg-light bg-gradient">
+          <div class="d-flex justify-content-center align-items-center">
             <p class="fw-bold fs-1 text-white">Scientific Calculator</p>
             
           </div>
@@ -44,12 +44,15 @@
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">MC</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">MR</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">M+</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">M+</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">M-</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">MS</div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">Trigonometry</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">Function</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">sin</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">cos</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">tan</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle" data-type="pi">π</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">2<sup>nd</sup></div>
               <!-- <div class="dropdown col">
                 <button
                   class="btn rounded-1 shadow-sm bg-dark-subtle dropdown-toggle"
@@ -69,9 +72,9 @@
               </div> -->
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">2<sup style="padding-left: px;">nd</sup></div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">π</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">e</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">sin<sup>-1</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">cos<sup>-1</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">tan<sup>-1</sup></div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">C</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle" data-type="bs"><i class="fa-solid fa-delete-left"></i></div>
               
@@ -80,7 +83,7 @@
               <!-- <i class="fa-solid fa-delete-left"></i> -->
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">x2</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">x<sup>2</sup></div>
               <!-- <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">x<sup style="padding-left: 2px;">2</sup></div> -->
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">1/x</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">|x|</div>
@@ -88,22 +91,22 @@
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">mod</div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">x2R</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle" data-type="root"><sup>2</sup>&#8730x</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">(</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">)</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">n!</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">/</div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">x<sup style="padding-left: 2px;">y</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle" data-type="x-raised-to-y">x<sup>y</sup></div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-light">7</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-light">8</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-light">9</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">*</div>
             </div>
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">10P</div>
-              <!-- <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">10<sup style="padding-left: 2px;">x</sup></div> -->
+              <!-- <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle">10P</div> -->
+              <div class="col btn p-2 rounded-1 shadow-sm bg-dark-subtle" data-type="10P">10<sup style="padding-left: 2px;">x</sup></div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-light">4</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-light">5</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-light">6</div>
