@@ -22,6 +22,7 @@ Array.from(buttons).forEach((button) => {
             //     result = eval(result)
             // }
             result = eval(result)
+            lastEnteredNumber = result
             document.querySelector('input').value = result;
 
         } 
@@ -34,21 +35,24 @@ Array.from(buttons).forEach((button) => {
         // clear memory 
         else if(e.target.innerHTML == "MC"){
             memory = 0;
-            document.querySelector('input').value = 0
+            // document.querySelector('input').value = 0
         }
         // save memory
-        else if(e.target.innerHTML == "MS"){
+        else if(e.target.innerHTML == "MR"){
+            console.log(memory, "memory")
             result = memory;
             document.querySelector('input').value = result;
         }
         else if(e.target.innerHTML == "M+"){
             doMemory = true
-            memory =+ lastEnteredNumber;
+            console.log(memory, "memory123", lastEnteredNumber)
+            memory = Number(memory) + Number(lastEnteredNumber);
+            console.log(memory, "M+")
             document.querySelector('input').value = lastEnteredNumber;
         }
         else if(e.target.innerHTML == "M-"){
             doMemory = true
-            memory =- lastEnteredNumber;
+            memory = Number(memory) - Number(lastEnteredNumber);
             document.querySelector('input').value = lastEnteredNumber;
         }
         // square 
@@ -138,12 +142,18 @@ Array.from(buttons).forEach((button) => {
 
 
         else {
-        // if(doPower){
-        //     result = answer + e.target.innerHTML
-        // } else {
-            result = result + e.target.innerHTML;
-        // }
+        console.log("qq")
         lastEnteredNumber = e.target.innerHTML
+        if(doMemory && e.target.closest("div").dataset.type == "number"){
+            console.log("id")
+            result = lastEnteredNumber
+            // doMemory = false
+        } else {
+            console.log("else")
+            console.log(result, "postion")
+            result = result + e.target.innerHTML;
+        }
+        doMemory = false
         document.querySelector('input').value = result;
 
 
