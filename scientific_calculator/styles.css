@@ -1,5 +1,16 @@
 input[type=text] {
   text-align: right;
   height: 60px;
-  font-size: 30px;
+  font-size: 25px;
+}
+
+.head_text {
+  font-family: "PT Serif", serif;
+  color: rgba(31, 114, 69, 0.719);
+  text-shadow: 2px 2px 3px rgb(187, 233, 201);
+}
+
+.bg_color {
+  background-color: rgb(245, 244, 244);
+  opacity: 0.5px;
 }/*# sourceMappingURL=styles.css.map */
