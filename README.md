@@ -15,7 +15,7 @@ This branch will demonstrate LMS git practical with git commands and their prope
                 On github, pull request is created from git_practical2 to git_practical compared ,review and then merge pull request.
 
 
-2. AMEND: Amending a commit is a way to modify the most recent commit we have made in our current branch. This can be helpful if yowe need to edit the commit message or if we forgot to include changes in the commit. 
+2. AMEND: Amending a commit is a way to modify the most recent commit we have made in our current branch. This can be helpful if we need to edit the commit message or if we forgot to include changes in the commit. 
                     
                     git commit --amend
                 Text editor will open, edit the commit message then save it. To show on github push it -
