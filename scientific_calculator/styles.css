@@ -6,8 +6,8 @@ input[type=text] {
 
 .head_text {
   font-family: "PT Serif", serif;
-  color: rgba(31, 114, 69, 0.719);
-  text-shadow: 2px 2px 3px rgb(187, 233, 201);
+  color: rgba(0, 0, 0, 0.719);
+  text-shadow: 2px 2px 3px rgb(214, 238, 223);
 }
 
 .bg_color {

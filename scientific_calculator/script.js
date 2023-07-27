@@ -2,15 +2,15 @@ let result = "";
 let memory = 0;
 let answer = 0;
 let doPower = false;
-let lastEnteredNumber = 0;
 let doMemory = 0;
 let doMod = false;
+let lastEnteredNumber = 0;
 
 const buttons = document.querySelectorAll(".btn");
 
 Array.from(buttons).forEach((button) => {
   button.addEventListener("click", (e) => {
-    console.log(e.target.closest("div").dataset);
+    // console.log(e.target.closest("div").dataset);
 
     // result
     if (e.target.innerHTML == "=") {
@@ -22,9 +22,6 @@ Array.from(buttons).forEach((button) => {
         result = answer + lastEnteredNumber;
         doMod = false;
       }
-      //  else {
-      //     result = eval(result)
-      // }
       result = eval(result);
       lastEnteredNumber = result;
       document.querySelector("input").value = result;
@@ -45,20 +42,19 @@ Array.from(buttons).forEach((button) => {
       result = memory;
       document.querySelector("input").value = result;
     }
-    
+    // save memory
     else if (e.target.innerHTML == "MS") {
-        console.log(memory, "memory save");
-        result = memory;
-        // document.querySelector("input").value = result;
-      }
+      console.log(memory, "memory save");
+      result = memory;
+      // document.querySelector("input").value = result;
+    }
     // memory +
     else if (e.target.innerHTML == "M+") {
       doMemory = true;
-    //   console.log(memory, "memory123", lastEnteredNumber);
       memory = Number(memory) + Number(lastEnteredNumber);
-    //   console.log(memory, "M+");
+      //   console.log(memory, "M+");
       document.querySelector("input").value = lastEnteredNumber;
-    } 
+    }
     // memory -
     else if (e.target.innerHTML == "M-") {
       doMemory = true;
@@ -80,7 +76,6 @@ Array.from(buttons).forEach((button) => {
       result = Math.abs(Number(result));
       document.querySelector("input").value = result;
     }
-
     // 1/x
     else if (e.target.innerHTML == "1/x") {
       result = 1 / Number(result);
@@ -91,7 +86,6 @@ Array.from(buttons).forEach((button) => {
       result = result + "**";
       // console.log("exp pressed")
     }
-
     // square root
     else if (e.target.closest("div").dataset.type == "root") {
       result = Math.sqrt(Number(result));
@@ -141,21 +135,18 @@ Array.from(buttons).forEach((button) => {
       result = Number(result) * 3.14;
       document.querySelector("input").value = result;
     }
-
     // percent %
     else if (e.target.innerHTML == "%") {
       result = Number(result) / 100;
       document.querySelector("input").value = result;
     } 
-    
     else {
       lastEnteredNumber = e.target.innerHTML;
       if (doMemory && e.target.closest("div").dataset.type == "number") {
         result = lastEnteredNumber;
-        // doMemory = false
       } else {
         // console.log(result, "position")
-        result = result + e.target.innerHTML;
+        result = result + lastEnteredNumber;
       }
       doMemory = false;
       document.querySelector("input").value = result;
