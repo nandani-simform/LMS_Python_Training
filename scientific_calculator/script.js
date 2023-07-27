@@ -1,9 +1,8 @@
 let result = "";
 let memory = 0;
 let answer = 0;
-let doPower = false;
+let flag = false;
 let doMemory = 0;
-let doMod = false;
 let lastEnteredNumber = 0;
 
 const buttons = document.querySelectorAll(".btn");
@@ -14,14 +13,14 @@ Array.from(buttons).forEach((button) => {
 
     // result
     if (e.target.innerHTML == "=") {
-      if (doPower) {
+      if (flag) {
         result = answer + lastEnteredNumber;
-        doPower = false;
+        flag = false;
       }
-      if (doMod) {
-        result = answer + lastEnteredNumber;
-        doMod = false;
-      }
+      // if (doMod) {
+      //   result = answer + lastEnteredNumber;
+      //   doMod = false;
+      // }
       result = eval(result);
       lastEnteredNumber = result;
       document.querySelector("input").value = result;
@@ -120,14 +119,14 @@ Array.from(buttons).forEach((button) => {
       // &#9744;
       answer = Number(result) + "**";
       result = Number(result) + "^";
-      doPower = true;
+      flag = true;
       document.querySelector("input").value = result;
     }
     //mod
     else if (e.target.innerHTML == "mod") {
       answer = Number(result) + "%";
       result = Number(result) + "%";
-      doMod = true;
+      flag = true;
       document.querySelector("input").value = result;
     }
     // pi
