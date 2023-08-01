@@ -1,1 +1,1 @@
-All LMS Python Training practicals are found here. 
+All Python practicals are found here. 
