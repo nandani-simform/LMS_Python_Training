@@ -125,8 +125,14 @@ Array.from(buttons).forEach((button) => {
     }
     // pi
     else if (e.target.closest("div").dataset.type == "pi") {
-      result = Number(result) * 3.14;
+      answer = Number(result) + "3.1415";
+      result = Number(result) + "π";
+      flag = true;
       document.querySelector("input").value = result;
+    
+      
+      // result = eval(Number(result) + 3.14);
+      // document.querySelector("input").value = result;
     }
     // percent %
     else if (e.target.innerHTML == "%") {
