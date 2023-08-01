@@ -1,15 +1,14 @@
 let result = "";
-let memory = 0;
 let answer = 0;
+let memory = 0;
 let flag = false;
-let doMemory = 0;
+let hasMemory = 0;
 let lastEnteredNumber = 0;
 
 const buttons = document.querySelectorAll(".btn");
 
 Array.from(buttons).forEach((button) => {
   button.addEventListener("click", (e) => {
-    // console.log(e.target.closest("div").dataset);
 
     // result
     if (e.target.innerHTML == "=") {
@@ -17,10 +16,6 @@ Array.from(buttons).forEach((button) => {
         result = answer + lastEnteredNumber;
         flag = false;
       }
-      // if (doMod) {
-      //   result = answer + lastEnteredNumber;
-      //   doMod = false;
-      // }
       result = eval(result);
       lastEnteredNumber = result;
       document.querySelector("input").value = result;
@@ -49,14 +44,14 @@ Array.from(buttons).forEach((button) => {
     }
     // memory +
     else if (e.target.innerHTML == "M+") {
-      doMemory = true;
+      hasMemory = true;
       memory = Number(memory) + Number(lastEnteredNumber);
       //   console.log(memory, "M+");
       document.querySelector("input").value = lastEnteredNumber;
     }
     // memory -
     else if (e.target.innerHTML == "M-") {
-      doMemory = true;
+      hasMemory = true;
       memory = Number(memory) - Number(lastEnteredNumber);
       document.querySelector("input").value = lastEnteredNumber;
     }
@@ -116,7 +111,6 @@ Array.from(buttons).forEach((button) => {
     }
     // x-raisedTo-y
     else if (e.target.closest("div").dataset.type == "x-raised-to-y") {
-      // &#9744;
       answer = Number(result) + "**";
       result = Number(result) + "^";
       flag = true;
@@ -139,15 +133,18 @@ Array.from(buttons).forEach((button) => {
       result = Number(result) / 100;
       document.querySelector("input").value = result;
     } 
+    // sin
+    else if (e.target.closest('div').dataset.type == "disabled") {
+      document.querySelector("input").value = 0;
+    }
     else {
       lastEnteredNumber = e.target.innerHTML;
-      if (doMemory && e.target.closest("div").dataset.type == "number") {
+      if (hasMemory && e.target.closest("div").dataset.type == "number") {
         result = lastEnteredNumber;
       } else {
-        // console.log(result, "position")
         result = result + lastEnteredNumber;
       }
-      doMemory = false;
+      hasMemory = false;
       document.querySelector("input").value = result;
     }
   });

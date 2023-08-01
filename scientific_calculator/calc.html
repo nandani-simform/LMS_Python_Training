@@ -9,44 +9,45 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Chela+One&family=Kalam:wght@700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&family=Chela+One&family=Kalam:wght@700&display=swap"
+      rel="stylesheet">
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
-    />
+      />
     <link rel=”stylesheet”
-    href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css”
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+      href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css”
+      />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   </head>
   <body>
-    <div
-      class="container-fluid d-flex justify-content-center align-items-center"
-      style="height: 100vh"
-    >
+    <!-- main area -->
+    <div class="container-fluid d-flex justify-content-center align-items-center height_main">
       <div style="width: max-content">
-        <div class="container-fluid p-2 bg_color">
+        <!-- main container -->
+        <div class="container-fluid p-2 bg_color rounded-3 ">
+          <!-- heading -->
           <div class="d-flex justify-content-around align-items-center">
             <p class="fw-bold fs-1 head_text">Scientific Calculator</p>
-            
           </div>
-          <p id="demo"></p>
           <div class="container-md text-center ">
+            <!-- output display area -->
             <div class="row pb-2">
               <input
                 class="form-control border-0 shadow-sm mb-1 bg-white rounded"
                 type="text"
-                placeholder="0"                
-              />
+                placeholder="0"
+                />
             </div>
-
+            <!-- 1st row memory buttons -->
             <div class="row pb-1 grid gap-1">
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">MC</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">MR</div>
@@ -54,24 +55,26 @@
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">M-</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">MS</div>
             </div>
-
+            <!-- 2nd row trigonometry buttons -->
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">sin</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">cos</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">tan</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="pi">π</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="disabled">sin</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="disabled">cos</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="disabled">tan</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle"
+                data-type="pi">π</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">%</div>
             </div>
-            
+            <!-- 3rd row clear buttons -->
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">sin<sup>-1</sup></div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">cos<sup>-1</sup></div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">tan<sup>-1</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="disabled">sin<sup>-1</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="disabled">cos<sup>-1</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="disabled">tan<sup>-1</sup></div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">C</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="bs">
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle"
+                data-type="bs">
                 <i class="fa-solid fa-delete-left"></i></div>
             </div>
-
+            <!-- 4th row exponential buttons -->
             <div class="row pb-1 grid gap-1">
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">x<sup>2</sup></div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">1/x</div>
@@ -79,47 +82,60 @@
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">exp</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">mod</div>
             </div>
-
+            <!-- 5th row parenthesis buttons -->
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle " data-type="root"><sup>2</sup>&#8730x</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle "
+                data-type="root"><sup>2</sup>&#8730x</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle ">(</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle ">)</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle ">n!</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle ">/</div>
             </div>
-            
+            <!-- 6th row 789 buttons -->
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="x-raised-to-y">x<sup>y</sup></div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold" data-type="number">7</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold" data-type="number">8</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold" data-type="number">9</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle"
+                data-type="x-raised-to-y">x<sup>y</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold"
+                data-type="number">7</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold"
+                data-type="number">8</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold"
+                data-type="number">9</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">*</div>
             </div>
-            
+            <!-- 7th row 456 buttons -->
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-log bg-success-subtle" data-type="10P">10<sup style="padding-left: 2px;">x</sup></div>
-              <div class="col btn p-2 rounded-1 shadow-log bg-light fw-bold" data-type="number">4</div>
-              <div class="col btn p-2 rounded-1 shadow-log bg-light fw-bold" data-type="number">5</div>
-              <div class="col btn p-2 rounded-1 shadow-log bg-light fw-bold" data-type="number">6</div>
+              <div class="col btn p-2 rounded-1 shadow-log bg-success-subtle"
+                data-type="10P">10<sup style="padding-left: 2px;">x</sup></div>
+              <div class="col btn p-2 rounded-1 shadow-log bg-light fw-bold"
+                data-type="number">4</div>
+              <div class="col btn p-2 rounded-1 shadow-log bg-light fw-bold"
+                data-type="number">5</div>
+              <div class="col btn p-2 rounded-1 shadow-log bg-light fw-bold"
+                data-type="number">6</div>
               <div class="col btn p-2 rounded-1 shadow-log bg-success-subtle">-</div>
             </div>
-
+            <!-- 8th row 123 buttons -->
             <div class="row pb-1 grid gap-1">
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">log</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold" data-type="number">1</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold" data-type="number">2</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold" data-type="number">3</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold"
+                data-type="number">1</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold"
+                data-type="number">2</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold"
+                data-type="number">3</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">+</div>
             </div>
-
+            <!-- 9th row result buttons -->
             <div class="row pb-1 grid gap-1">
-              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle">ln</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-light">+/-</div>
-              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold" data-type="number">0</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-success-subtle" data-type="disabled">ln</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light" data-type="disabled">+/-</div>
+              <div class="col btn p-2 rounded-1 shadow-sm bg-light fw-bold"
+                data-type="number">0</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-light">.</div>
               <div class="col btn p-2 rounded-1 shadow-sm bg-danger-subtle">=</div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -128,9 +144,11 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./script.js"></script>
   </body>
 </html>
