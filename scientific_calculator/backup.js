@@ -76,6 +76,10 @@ Array.from(buttons).forEach((button) => {
       result = 1 / Number(result);
       document.querySelector("input").value = result;
     }
+    // exp
+    else if (e.target.innerHTML == "exp") {
+      result = result + "**";
+    }
     // square root
     else if (e.target.closest("div").dataset.type == "root") {
       result = Math.sqrt(Number(result));
@@ -132,11 +136,10 @@ Array.from(buttons).forEach((button) => {
       result = Number(result) / 100;
       document.querySelector("input").value = result;
     } 
-    
+    // sin
     else if (e.target.closest('div').dataset.type == "disabled") {
       document.querySelector("input").value = 0;
     }
-    // multiply
     else if (e.target.closest("div").dataset.type == "multiply") {
       answer = Number(result) + "*";
       result = Number(result) + "x";

@@ -15,4 +15,8 @@ input[type=text] {
 
 .bg_color {
   background-color: rgb(245, 250, 248);
+}
+
+.hover_btn :hover {
+  background-color: blue;
 }/*# sourceMappingURL=styles.css.map */
