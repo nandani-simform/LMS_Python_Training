@@ -17,8 +17,8 @@ Array.from(buttons).forEach((button) => {
         flag = false;
       }
       result = eval(result);
-      lastEnteredNumber = result;
-      document.querySelector("input").value = result;
+      lastEnteredNumber = result.toFixed(4);
+      document.querySelector("input").value = result.toFixed(4);
     }
     // clear display
     else if (e.target.innerHTML == "C") {
@@ -125,7 +125,7 @@ Array.from(buttons).forEach((button) => {
     }
     // pi
     else if (e.target.closest("div").dataset.type == "pi") {
-      answer = Number(result) + "3.1415";
+      answer = Number(result) * Math.PI;
       result = Number(result) + "π";
       flag = true;
       document.querySelector("input").value = result;

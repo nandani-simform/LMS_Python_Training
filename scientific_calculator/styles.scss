@@ -1,19 +1,20 @@
-input[type="text"] {
-    text-align: right;
-    height: 60px;
-    font-size: 25px;
-}
-.head_text{
-    // font-family: 'Chela One', cursive;
-    // font-family: 'Acme', sans-serif;
-    font-family: 'PT Serif', serif;
-    color: rgba(0, 0, 0, 0.719);
-    text-shadow: 2px 2px 3px rgb(214, 238, 223);
-}
-.bg_color{
-    background-color: rgb(245, 244, 244);
-    opacity: 0.5px;
-}
 .height_main{
     height: 100vh;
 }
+
+input[type="text"] {
+    text-align: right;
+    height: 8vh;
+
+}
+
+.head_text{
+    font-family: 'PT Serif', serif;
+    color: rgba(20, 51, 73, 0.719);
+    text-shadow: 2px 2px 3px rgb(209, 218, 230);
+}
+
+.bg_color{
+    background-color: rgb(245, 250, 248);
+}
+
