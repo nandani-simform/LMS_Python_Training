@@ -3,7 +3,7 @@ Scientific calculator practical
 -> changed some UI design
 -> e, ln, exp and +/- functionality not included
 
--> + , - , \* , / performs basic arithmatic operations
+-> + , - , x , / performs basic arithmatic operations
 
 -> log find logarithmic value
 
@@ -25,7 +25,7 @@ Scientific calculator practical
 
 -> mod return remainder when x mod y
 
--> π evaluate expression with pi value
+-> π multiply number with pi value
 
 -> % find percent value
 
