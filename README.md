@@ -1,9 +1,10 @@
 Scientific calculator practical
 
 -> changed some UI design
+
 -> e, ln, exp and +/- functionality not included
 
--> + , - , x , / performs basic arithmatic operations
+-> + , - , x , / performs basic arithmetic operations
 
 -> log find logarithmic value
 
@@ -13,13 +14,13 @@ Scientific calculator practical
 
 -> 2√x find square root of x
 
--> n! calculate factorial of n
+-> n! calculate the factorial of n
 
--> () parenthesis indicates that expression within that to be solved first
+-> () parenthesis indicates that expression within that is to be solved first
 
 -> x^2 calculate square of x
 
--> 1/x calculate multiplicative inverse
+-> 1/x calculate the multiplicative inverse
 
 -> |x| returns absolute value [positive value]
 
@@ -31,13 +32,13 @@ Scientific calculator practical
 
 -> C clear display
 
--> backspace remove last displayed value
+-> backspace removes last displayed value
 
 -> MC clears memory
 
--> MR reset memory to 0
+-> MR reset the memory to 0
 
--> M+ add value to stored memory
+-> M+ adds value to stored memory
 
 -> M- removed value from stored memory
 
