@@ -8,7 +8,7 @@ body {
   width: 100vw;
   padding: 0;
   margin: 0;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: auto;
   background: rgba(224, 231, 245, 0.596);
 }
@@ -133,7 +133,7 @@ body {
   background: white;
   border-bottom: 0.5px solid rgba(117, 110, 110, 0.411);
   margin-bottom: 20px;
-  overflow-x: auto;
+  overflow-x: hidden;
   .gap {
     position: sticky;
     width: 100%;
