@@ -2,6 +2,16 @@
 
 
 def str_to_num(numStr):
+    """
+        converts a string of numeric words into a number.
+
+        Args:
+            numStr (str): input String
+        Raises:
+            ValueError: in event of invalid target string
+        Returns:
+            int: target 
+    """
     wordLength3 = {'one':1, 'two':2, 'six':6}
     wordLength4 = {'zero':0, 'four':4, 'five':5, 'nine':9}
     wordLength5 = {'three':3, 'seven':7, 'eight':8}
@@ -13,6 +23,8 @@ def str_to_num(numStr):
             num1 = wordLength4[numStr]
         elif numStr in wordLength5:
             num1 = wordLength5[numStr]
+        else:
+            raise ValueError("Enter correct word")
 
         return num1        
         
@@ -29,7 +41,7 @@ def str_to_num(numStr):
                 num2 = wordLength4[remain3]
             elif remain3 in wordLength5:
                 num2 = wordLength5[remain3]
-
+           
         elif word4 in wordLength4:
             num1 = wordLength4[word4]
             if remain4 in wordLength4:
@@ -37,7 +49,7 @@ def str_to_num(numStr):
             elif remain4 in wordLength3:
                 num2 = wordLength3[remain4]
             elif remain4 in wordLength5:
-                num2 = wordLength5[remain4]
+                num2 = wordLength5[remain4]       
             
         elif word5 in wordLength5:
             num1 = wordLength5[word5]
@@ -47,11 +59,13 @@ def str_to_num(numStr):
                 num2 = wordLength4[remain5]
             elif remain5 in wordLength3:
                 num2 = wordLength3[remain5]
+            
+        else:
+            raise ValueError("Enter correct word")
 
         num = int(str(num1)+str(num2))
         
         return num
-
 
 def find_gcd():
     n1 = input("Enter 1st number in words : ")
@@ -59,6 +73,15 @@ def find_gcd():
 
     n2 = input("Enter 2nd number in words : ")
     y = str_to_num(n2)
+
+    """
+        finds the greatest common divisor of two numbers.
+        Args:
+            x (int): first number
+            y (int): second number
+        Returns:
+            int: greatest common divisor
+    """
 
     def calculate(x,y):
         if x == 0:
