@@ -4,15 +4,14 @@ from django.http import HttpResponse
 def home(request):
 
     people = [
-        {'name': 'Nandani', 'age':22},
-        {'name': 'Devanshi', 'age':23},
-        {'name': 'Divisha', 'age':12},
-        {'name': 'Harshal', 'age':30},
-        {'name': 'Gautam', 'age':17},
-        {'name': 'Jaysoni', 'age':18},
+        {'name': 'Aman', 'age':22},
+        {'name': 'Akshat', 'age':23},
+        {'name': 'Naman', 'age':12},
+        {'name': 'Tapan', 'age':30},
+        {'name': 'Pransh', 'age':17},
+        {'name': 'Daksh', 'age':18},
 
     ]  
-    
     return render(request, "home/home.html", context={'page':'Home page',"people": people})
 
 def about(request):
