@@ -24,7 +24,7 @@
         <header class="site-header">
             <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
                 <div class="container">
-                    <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Django Blog</a>
+                    <a class="navbar-brand mr-4" href="{% url 'landing-page' %}">Django Blog</a>
                     <button class="navbar-toggler" type="button"
                         data-toggle="collapse" data-target="#navbarToggle"
                         aria-controls="navbarToggle" aria-expanded="false"
@@ -37,6 +37,7 @@
                             <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
                         </div>
                         <div class="navbar-nav">
+
                             {% if user.is_authenticated %}
                                 <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
                                 <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
@@ -62,19 +63,6 @@
                     {% endfor %}
                 {% endif %}
                 {% block content %}{% endblock %}
-              </div>
-              <div class="col-md-4">
-                <div class="content-section">
-                  <h3>Our Sidebar</h3>
-                  <p class='text-muted'>You can put any information here you'd like.
-                    <ul class="list-group">
-                      <li class="list-group-item list-group-item-light">Latest Posts</li>
-                      <li class="list-group-item list-group-item-light">Announcements</li>
-                      <li class="list-group-item list-group-item-light">Calendars</li>
-                      <li class="list-group-item list-group-item-light">etc</li>
-                    </ul>
-                  </p>
-                </div>
               </div>
             </div>
           </main>

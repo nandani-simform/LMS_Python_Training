@@ -11,7 +11,8 @@ from django.views.generic import (ListView,
                                  DeleteView)
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import user_passes_test
 
 def home(request):
     context = {
@@ -35,11 +36,10 @@ class UserPostListView(ListView):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date_posted')   
         
-
-
 class PostDetailView(DetailView):
     model = Post 
 
+@method_decorator(user_passes_test(lambda u: u.is_superuser), name='dispatch')
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post 
     fields = ['title', 'content']
@@ -74,7 +74,8 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
     
 
-
-    
 def about(request):
     return render(request, 'blog/about.html', {'title':'About'})
+
+def landing_page(request):
+    return render(request, 'blog/landing_page.html', {'title':'Django Blog'})
