@@ -39,7 +39,6 @@ from .models import Students
 #         return data
     
 
-
 # model serializers
 class StudentSerializers(serializers.ModelSerializer):
     # name = serializers.CharField(read_only = True)
@@ -47,7 +46,7 @@ class StudentSerializers(serializers.ModelSerializer):
     class Meta:
         model = Students
         fields = ['id', 'name', 'roll', 'city']
-        read_only_fields = ['name', 'roll']
+        # read_only_fields = ['name', 'roll']
 
 
 
