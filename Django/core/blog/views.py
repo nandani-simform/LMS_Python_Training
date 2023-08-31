@@ -3,6 +3,7 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.contrib.auth.models import User
+from django.http import HttpResponseNotFound
 
 from django.views.generic import (ListView, 
                                  DetailView, 
@@ -39,7 +40,7 @@ class UserPostListView(ListView):
 class PostDetailView(DetailView):
     model = Post 
 
-@method_decorator(user_passes_test(lambda u: u.is_superuser), name='dispatch')
+# @method_decorator(user_passes_test(lambda u: u.is_superuser), name='dispatch')
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post 
     fields = ['title', 'content']
@@ -47,6 +48,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
     
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin , UpdateView):
     model = Post 

@@ -15,7 +15,7 @@ def get_data(id = None):
     print(data)
 
 # get_data(9)
- 
+   
 def post_data():
     data = {
         'name': 'aditi',
