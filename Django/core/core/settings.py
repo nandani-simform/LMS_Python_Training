@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
 ]
 
 
@@ -154,11 +155,3 @@ EMAIL_HOST_USER = config('USER_EMAIL')
 EMAIL_HOST_PASSWORD = config('USER_PASSWORD')
 
 
-
-# send_mail(
-#     "Subject here",
-#     "Here is the message.",
-#     "nandanidalsaniya@gmail.com",
-#     ["nandanidalsaniya@gmail.com"],
-#     fail_silently=False,
-# )

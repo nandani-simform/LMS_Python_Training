@@ -3,8 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1,
-            shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet"
@@ -14,9 +13,9 @@
         <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
 
         {% if title %}
-        <title>Django Blog- {{ title }}</title>
+            <title>Django Blog- {{ title }}</title>
         {% else %}
-        <title>Django Blog</title>
+            <title>Django Blog</title>
         {% endif %}
 
     </head>
@@ -25,12 +24,7 @@
             <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
                 <div class="container">
                     <a class="navbar-brand mr-4" href="{% url 'landing-page' %}">Django Blog</a>
-                    <button class="navbar-toggler" type="button"
-                        data-toggle="collapse" data-target="#navbarToggle"
-                        aria-controls="navbarToggle" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <div class="navbar-nav mr-auto">
                             <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
@@ -68,7 +62,7 @@
                 {% block content %}{% endblock %}
               </div>
             </div>
-          </main>
+        </main>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

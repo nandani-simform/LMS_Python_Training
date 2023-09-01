@@ -1,9 +1,12 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from django.contrib.auth.models import User
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
+
+from .templates.blog import *
 
 from django.views.generic import (ListView, 
                                  DetailView, 
@@ -14,6 +17,7 @@ from django.views.generic import (ListView,
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import user_passes_test
+
 
 def home(request):
     context = {
@@ -40,16 +44,26 @@ class UserPostListView(ListView):
 class PostDetailView(DetailView):
     model = Post 
 
-# @method_decorator(user_passes_test(lambda u: u.is_superuser), name='dispatch')
+
+def is_superuser(user):
+    return user.is_superuser   
+
+
+# @user_passes_test(is_superuser, login_url="404.html")  # Redirect non-superusers to the login page
+# @method_decorator(user_passes_test(is_superuser), name='dispatch')
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post 
     fields = ['title', 'content']
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
     
-    
+        if self.request.user.is_superuser:
+            form.instance.author = self.request.user
+            return super().form_valid(form)
+        else:
+            return redirect('wrong-address')
+        
+
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin , UpdateView):
     model = Post 
     fields = ['title', 'content']
@@ -81,3 +95,6 @@ def about(request):
 
 def landing_page(request):
     return render(request, 'blog/landing_page.html', {'title':'Django Blog'})
+
+def pagenotfound(request):
+    return render(request, 'blog/404.html', {'title': "wrong address"})

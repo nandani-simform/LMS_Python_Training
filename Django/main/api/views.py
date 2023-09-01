@@ -45,6 +45,7 @@ from rest_framework.mixins import ListModelMixin, CreateModelMixin, RetrieveMode
 
 # @method_decorator(csrf_exempt, name='dispatch')
 # class StudentAPI(View):
+
 #     def get(self, request, *args, **kwargs):
 #         json_data = request.body
 #         stream = io.BytesIO(json_data)
