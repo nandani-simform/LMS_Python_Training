@@ -5,6 +5,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView 
 
+
 router = DefaultRouter()
 router.register('studentapi', views.StudentModelViewSets, basename='student')
 

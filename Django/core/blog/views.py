@@ -12,18 +12,13 @@ from django.views.generic import (ListView,
                                  DetailView, 
                                  CreateView, 
                                  UpdateView,
-                                 DeleteView)
+                                 DeleteView )
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import user_passes_test
 
 
-def home(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/home.html', context)
 
 class PostListView(ListView):
     model = Post 
@@ -45,8 +40,8 @@ class PostDetailView(DetailView):
     model = Post 
 
 
-def is_superuser(user):
-    return user.is_superuser   
+# def is_superuser(user):
+#     return user.is_superuser   
 
 
 # @user_passes_test(is_superuser, login_url="404.html")  # Redirect non-superusers to the login page
@@ -88,7 +83,11 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
-    
+
+
+def home(request):
+    return render(request, 'blog/home.html', {'posts': Post.objects.all()})
+ 
 
 def about(request):
     return render(request, 'blog/about.html', {'title':'About'})
