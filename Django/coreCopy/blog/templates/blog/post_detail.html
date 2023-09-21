@@ -1,33 +1,34 @@
 {% extends "blog/base.html" %} {% block content %}
 
+
 <article class="media content-section">
  
     <img
         class="rounded-circle article-img"
-        src="{{ object.author.profile.image.url }}"
+        src="{{ blog.author.profile.profile_picture.url }}"
         />
     <div class="media-body">
         <div
             class="article-metadata d-flex align-items-center
             justify-content-between">
             <div>
-                <a class="mr-2" href="{#}">{{ object.author }}</a>
-                <small class="text-muted">{{ object.date_posted | date:"F d, Y" }}</small>
+                <a class="mr-2" href="{#}">{{ blog.author }}</a>
+                <small class="text-muted">{{ blog.date_posted | date:"F d, Y" }}</small>
             </div>
-            <!-- <div>
-                {% if object.author == user %}
+            <div>
+                {% if blog.author == user %}
                 <a
                     class="btn btn-outline-secondary btn-sm m-1"
-                    href="{% url 'post-update' object.id %}">Update</a>
+                    href="{% url 'blog-update' blog.id %}">Update</a>
                 <a
                     class="btn btn-danger btn-sm m1"
-                    href="{% url 'post-delete' object.id %}">Delete</a>
+                    href="{% url 'blog-delete' blog.id %}">Delete</a>
 
                 {% endif %}
-            </div> -->
+            </div>
         </div>
-        <h2 class="article-title">{{ object.title }}</h2>
-        <p class="article-content">{{ object.content }}</p>
+        <h2 class="article-title">{{ blog.title }}</h2>
+        <p class="article-content">{{ blog.content }}</p>
     </div>
 </article>
 
