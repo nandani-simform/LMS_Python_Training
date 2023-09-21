@@ -10,7 +10,7 @@ def create_or_update_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
         print("profile created ",instance)
-    else:
+    else:       
         instance.profile.save()
         print("profile updated ",instance)
 
