@@ -8,7 +8,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from .mypagination import MyPageNumberPagination
 
 class StudentModelViewSets(viewsets.ModelViewSet):
-    queryset = Students.objects.all()
+    queryset = Students.objects.all().order_by('roll').values()
     serializer_class = StudentSerializers
     pagination_class = MyPageNumberPagination
 
@@ -20,5 +20,5 @@ class StudentModelViewSets(viewsets.ModelViewSet):
 
     # permission_classes = [IsAdminUser]
     # permission_classes = [IsAuthenticated]
-    # permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
   

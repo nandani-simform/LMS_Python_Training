@@ -1,0 +1,10 @@
+run: python manage.py runserver
+
+-> open new terminal
+    run: redis-server
+    if post already in use -
+    run: sudo service redis-server stop
+
+
+-> open new terminal
+    run: python -m celery -A src worker

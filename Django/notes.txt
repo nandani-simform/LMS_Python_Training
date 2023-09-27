@@ -1,7 +1,5 @@
 conda activate myenv
 
-
-
 ---celery---
 conda activate celery_env
 python -m celery -A src worker
