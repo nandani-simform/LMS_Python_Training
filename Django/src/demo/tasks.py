@@ -7,7 +7,7 @@ import smtplib
 @shared_task
 def send_email(email_address):
     print('email send called')
-    sleep(10)
+    # sleep(10)
     print(f"Hi, I'm sending an email to: {email_address}")
     me = settings.EMAIL_USERNAME
     password = settings.EMAIL_PASSWORD

@@ -8,3 +8,10 @@ run: python manage.py runserver
 
 -> open new terminal
     run: python -m celery -A src worker
+        OR
+    run: celery -A src.celery worker -l info
+
+-> to run celery beat , open new terminal
+    run: celery -A src beat -l info
+
+celery -A src.celery worker --beat -l info
