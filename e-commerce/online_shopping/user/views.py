@@ -1,35 +1,33 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication, TokenAuthentication
 from .models import CustomUser
-from .serializers import UserSerializer
+from .serializers import UserSerializer, UserRegisterSerializer, UserLoginSerializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from django.contrib.auth import authenticate, login
+from rest_framework.authtoken.models import Token
 
 
 
-class UserAPI(APIView):
+class UserView(APIView):
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
     def get(self,request, pk=None, format=None):
-        # id = pk
-        if id is not None:
+        id = pk
+        if id is not None: 
             userobj = CustomUser.objects.get(id=pk)
             user_serializer = UserSerializer(userobj)
             return Response(user_serializer.data)
-        userobj = CustomUser.objects.all()
+        userobj = CustomUser.objects.order_by('id')
         user_serializer = UserSerializer(userobj, many=True)
         return Response(user_serializer.data)
-    
-    def post(self, request):
-        user_serializer = UserSerializer(data = request.data)
-        if user_serializer.is_valid():
-            user_serializer.save()
-            return Response({'message':'User created'}, status=status.HTTP_201_CREATED)
-        return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
     def put(self,request, pk, format=None):
-        # id = pk
+        id = pk
         userobj = CustomUser.objects.get(id=pk)
         user_serializer = UserSerializer(userobj, data=request.data)
 
@@ -39,7 +37,7 @@ class UserAPI(APIView):
         return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def patch(self,request, pk, format=None):
-        # id = pk
+        id = pk
         userobj = CustomUser.objects.get(id=pk)
         user_serializer = UserSerializer(userobj, data=request.data, partial=True)
 
@@ -53,17 +51,82 @@ class UserAPI(APIView):
         userobj.delete()
         return Response({'message':'User deleted'})
 
+class UserDetailsView(APIView):
+    permission_classes = [IsAuthenticated]
 
-# class UserListView(ListCreateAPIView):
-#     queryset = CustomUser.objects.all()
-#     serializer_class = UserSerializer
-#     permission_classes = [IsAuthenticated]
-#     authentication_classes = [BasicAuthentication]    
+    def get(self, request):
+        user_data = {
+            'id' : request.user.id,
+            'username' : request.user.username,
+            'role': request.user.role,
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+            'phone_number': request.user.phone_number
+
+        }
+
+        return Response(user_data, status=status.HTTP_200_OK)
+    
+
+class UserRegisterView(APIView):
+    # permission_classes = [IsAuthenticated]
+    def post(self, request):
+        user_serializer = UserRegisterSerializer(data = request.data)
+        if user_serializer.is_valid():
+            user = user_serializer.save()
+            return Response(
+                {
+                    'user_id': user.id,
+                    'username' : user.username,
+                    'message': 'Data created',
+                }, status=status.HTTP_201_CREATED
+            )
+        return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# class UserDetailView(RetrieveUpdateDestroyAPIView):
-#     queryset = CustomUser.objects.all()
-#     serializer_class = UserSerializer
-#     # permission_classes = [IsAuthenticated]
+class UserLoginView(APIView):
+    permission_classes = [AllowAny]
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            token, created = Token.objects.get_or_create(user=user)
+            print(token.key)
+            return Response({'message': 'Successfully logged in'},status=status.HTTP_200_OK)
+        else:
+            return Response({'details': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
+class UserLogoutView(APIView):
+    # permission_classes = [IsAuthenticated]
+    # def get(self, request):
+    #     try:
+    #         request.user.auth_token.delete()
+    #         return Response({'message': 'Successfully logged out.'}, status=status.HTTP_200_OK)
+    #     except Exception as e:
+    #         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        # Remove the user's token to log them out
+        request.auth.delete()
+        return Response({'detail': 'Successfully logged out.'}, status=status.HTTP_200_OK)
+
+
+
+
+class UserListView(ListCreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [BasicAuthentication]    
+
+
+class UserDetailView(RetrieveUpdateDestroyAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    # permission_classes = [IsAuthenticated]
 
