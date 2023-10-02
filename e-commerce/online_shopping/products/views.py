@@ -41,20 +41,24 @@ class AddProductView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class DeleteProductView(APIView):
-    # def get(self,request, product_id):
-    #     id = product_id
-    #     # breakpoint()
-    #     if id is not None: 
-    #         product = Product.objects.get(id=product_id)
-    #         serializer = ProductSerializer(product)
-    #         return Response(serializer.data)
-
-    
     def delete(self, request, product_id):
         try:
-            # breakpoint()
             product = Product.objects.get(id=product_id)
             product.delete()
             return Response({'message': 'Product deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
         except Product.DoesNotExist:
             raise Http404("Product does not exist")
+        
+class ProductDetailView(APIView):
+    def get(self, request, product_id=None):
+        id = product_id
+        if id is not None: 
+            item = Product.objects.get(id=product_id)
+            serializer = ProductSerializer(item)
+            return Response(serializer.data)
+        
+        item = Product.objects.order_by('id')
+        serializer = ProductSerializer(item, many=True)
+        return Response(serializer.data)
+
+    

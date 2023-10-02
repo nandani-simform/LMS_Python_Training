@@ -99,21 +99,20 @@ class UserLoginView(APIView):
             return Response({'details': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
 class UserLogoutView(APIView):
-    # permission_classes = [IsAuthenticated]
-    # def get(self, request):
-    #     try:
-    #         request.user.auth_token.delete()
-    #         return Response({'message': 'Successfully logged out.'}, status=status.HTTP_200_OK)
-    #     except Exception as e:
-    #         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+    def get(self, request):
+        try:
+            request.user.auth_token.delete()
+            return Response({'message': 'Successfully logged out.'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    def post(self, request):
-        # Remove the user's token to log them out
-        request.auth.delete()
-        return Response({'detail': 'Successfully logged out.'}, status=status.HTTP_200_OK)
+    # authentication_classes = [TokenAuthentication]
+    # permission_classes = [IsAuthenticated]
+
+    # def post(self, request):
+    #     request.auth.delete()
+    #     return Response({'detail': 'Successfully logged out.'}, status=status.HTTP_200_OK)
 
 
 
@@ -129,4 +128,5 @@ class UserDetailView(RetrieveUpdateDestroyAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
     # permission_classes = [IsAuthenticated]
+
 
