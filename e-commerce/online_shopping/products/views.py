@@ -22,10 +22,10 @@ class AddCategoryView(APIView):
     
 
 class AddProductView(APIView):
-    def get(self, request):
-        products = Product.objects.all()
-        serializer = ProductSerializer(products, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    # def get(self, request):
+    #     products = Product.objects.all()
+    #     serializer = ProductSerializer(products, many=True)
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
     
     def post(self,request):
         serializer = ProductSerializer(data=request.data)
@@ -60,5 +60,44 @@ class ProductDetailView(APIView):
         item = Product.objects.order_by('id')
         serializer = ProductSerializer(item, many=True)
         return Response(serializer.data)
+    
+    def put(self, request, product_id):
+        # id = product_id
+        item = Product.objects.get(id=product_id)
+        serializer = ProductSerializer(item, data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message':'Product data updated'}, status=status.HTTP_202_ACCEPTED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def patch(self, request, product_id):
+        # id = product_id
+        try:
+            item = Product.objects.get(id=product_id)
+        except Product.DoesNotExist:
+            return Response({"error": "Product not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = ProductSerializer(item, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message':'Product partial data updated'}, status=status.HTTP_202_ACCEPTED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class CategoryBasedProductView(APIView):
+    def get(self, request, category_id):
+        try:
+            category = Category.objects.get(id=category_id)
+            product = Product.objects.filter(categories = category)
+            serialiser = ProductSerializer(product, many=True)
+            item = serialiser.data
+            list = [product['product_name'] for product in item]
+            return Response(list)
+            
+        except Category.DoesNotExist:
+            return Response({"error": "Category not found"}, status=status.HTTP_404_NOT_FOUND)
+
+
 
     

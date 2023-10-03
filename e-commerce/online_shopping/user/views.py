@@ -11,8 +11,6 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from django.contrib.auth import authenticate, login
 from rest_framework.authtoken.models import Token
 
-
-
 class UserView(APIView):
     # authentication_classes = [BasicAuthentication]
     # permission_classes = [IsAuthenticated]
@@ -59,9 +57,6 @@ class UserDetailsView(APIView):
             'id' : request.user.id,
             'username' : request.user.username,
             'role': request.user.role,
-            'first_name': request.user.first_name,
-            'last_name': request.user.last_name,
-            'phone_number': request.user.phone_number
 
         }
 
@@ -69,7 +64,6 @@ class UserDetailsView(APIView):
     
 
 class UserRegisterView(APIView):
-    # permission_classes = [IsAuthenticated]
     def post(self, request):
         user_serializer = UserRegisterSerializer(data = request.data)
         if user_serializer.is_valid():

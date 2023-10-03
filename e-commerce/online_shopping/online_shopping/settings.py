@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'user',
     'products',
+    'shopping_cart',
     
 
 ]
