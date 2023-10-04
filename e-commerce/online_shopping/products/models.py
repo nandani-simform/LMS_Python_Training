@@ -11,11 +11,9 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     categories = models.ManyToManyField(Category, related_name='products')
     brand = models.CharField(max_length=50)
-    rating = models.BigIntegerField()
+    rating = models.DecimalField(max_digits=10, decimal_places=2)
     availability = models.BooleanField()
     
     def __str__(self):
         return self.product_name
     
-
-
