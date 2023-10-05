@@ -38,4 +38,14 @@ Creating a RESTful e-commerce project with user authentication, item listing, sh
    - **GET /api/orders**: Get a list of the user's past orders (requires authentication).
    - **GET /api/orders/:orderId**: Get details of a specific order (requires authentication).
 
-Please note that this is a simplified outline, and there are many additional considerations and features that need to be implemented in a real-world e-commerce application, such as handling product reviews, user profiles, shipping information, and payment processing integration. Additionally, you will need to choose a technology stack (e.g., Node.js, Express.js, React, Vue.js, Angular, etc.) and set up a database system to store user data, product information, and orders. Security, scalability, and performance optimizations are also essential aspects to consider during development.
+
+curl -X POST -H "Content-Type: application/json" -d '{"product_name": "Dairy Milk", "description": "best chocolate", "price": 150 , "categories": [3], "brand": "Cadbury", "rating": 4.5, "availability":"True"}' http://127.0.0.1:8000/api/product/new
+curl -H "Authorization: Bearer 35875550c5cd44d888383898e879967b92e35f29" -H "Content-Type: application/json" http://127.0.0.1:8000/api/auth/user
+
+curl -X POST -H "Content-Type: application/json" -d '{"username": "admin", "password": "superuser"}' http://127.0.0.1:8000/api/auth/login
+   
+curl -X GET http://127.0.0.1:8000/api/auth/user -H 'Authorization: Token 35875550c5cd44d888383898e879967b92e35f29'
+curl -X GET http://127.0.0.1:8000/api/auth/user -H 'Authorization: Token 9dd5e051902b09450701bbe98e90ab716e6d4d41'
+
+9dd5e051902b09450701bbe98e90ab716e6d4d41
+35875550c5cd44d888383898e879967b92e35f29

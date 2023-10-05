@@ -10,10 +10,9 @@ from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from django.contrib.auth import authenticate, login
 from rest_framework.authtoken.models import Token
+import requests
 
 class UserView(APIView):
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsAuthenticated]
     def get(self,request, pk=None, format=None):
         id = pk
         if id is not None: 
@@ -50,18 +49,42 @@ class UserView(APIView):
         return Response({'message':'User deleted'})
 
 class UserDetailsView(APIView):
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
+        print(request)
+        print(request.user)
+        # print("request.user")
         user_data = {
             'id' : request.user.id,
             'username' : request.user.username,
-            'role': request.user.role,
+            # 'role': request.user.role,
 
         }
 
         return Response(user_data, status=status.HTTP_200_OK)
     
+        # try:
+        #     token = Token.objects.get(user=request.user)
+        # except Token.DoesNotExist:
+        #     return Response({'details': 'Token not found'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        # # Include the token in the Authorization header
+        # headers = {
+        #     "Authorization": f"Token {token.key}"
+        # }
+        
+        # # Make a GET request to the /api/auth/user endpoint
+        # user_info_url = "http://127.0.0.1:8000/api/auth/user"
+        # response = requests.get(user_info_url, headers=headers)
+        
+        # # Check the response status and return data accordingly
+        # if response.status_code == status.HTTP_200_OK:
+        #     return Response(response.json(), status=status.HTTP_200_OK)
+        # else:
+        #     return Response({'details': 'Failed to retrieve user information'}, status=response.status_code)
+
 
 class UserRegisterView(APIView):
     def post(self, request):
@@ -79,7 +102,7 @@ class UserRegisterView(APIView):
 
 
 class UserLoginView(APIView):
-    permission_classes = [AllowAny]
+    # permission_classes = [AllowAny]
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')
@@ -93,7 +116,7 @@ class UserLoginView(APIView):
             return Response({'details': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
 class UserLogoutView(APIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     def get(self, request):
         try:
             request.user.auth_token.delete()
@@ -107,20 +130,5 @@ class UserLogoutView(APIView):
     # def post(self, request):
     #     request.auth.delete()
     #     return Response({'detail': 'Successfully logged out.'}, status=status.HTTP_200_OK)
-
-
-
-
-class UserListView(ListCreateAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [BasicAuthentication]    
-
-
-class UserDetailView(RetrieveUpdateDestroyAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = UserSerializer
-    # permission_classes = [IsAuthenticated]
 
 
