@@ -10,5 +10,4 @@ urlpatterns = [
     path('', include('shopping_cart.urls')),
     path('', include('orders.urls')),
 
-   
 ]

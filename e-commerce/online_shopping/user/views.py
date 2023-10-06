@@ -49,12 +49,14 @@ class UserView(APIView):
         return Response({'message':'User deleted'})
 
 class UserDetailsView(APIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [TokenAuthentication]
+    # permission_classes = [IsAuthenticated]
+    # serializer_class = UserSerializer
 
     def get(self, request):
-        print(request)
+
         print(request.user)
+        print(self.request.user)
         # print("request.user")
         user_data = {
             'id' : request.user.id,
@@ -62,28 +64,10 @@ class UserDetailsView(APIView):
             # 'role': request.user.role,
 
         }
+        # user = request.user
+        # serializer = UserSerializer(user)
 
         return Response(user_data, status=status.HTTP_200_OK)
-    
-        # try:
-        #     token = Token.objects.get(user=request.user)
-        # except Token.DoesNotExist:
-        #     return Response({'details': 'Token not found'}, status=status.HTTP_401_UNAUTHORIZED)
-        
-        # # Include the token in the Authorization header
-        # headers = {
-        #     "Authorization": f"Token {token.key}"
-        # }
-        
-        # # Make a GET request to the /api/auth/user endpoint
-        # user_info_url = "http://127.0.0.1:8000/api/auth/user"
-        # response = requests.get(user_info_url, headers=headers)
-        
-        # # Check the response status and return data accordingly
-        # if response.status_code == status.HTTP_200_OK:
-        #     return Response(response.json(), status=status.HTTP_200_OK)
-        # else:
-        #     return Response({'details': 'Failed to retrieve user information'}, status=response.status_code)
 
 
 class UserRegisterView(APIView):

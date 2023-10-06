@@ -9,10 +9,10 @@ class CartItem(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        unique_together = ('user', 'product')
+    # class Meta:
+    #     unique_together = ('user', 'product')
 
     def __str__(self):
-        return self.product+self.quantity
+        return self.product
 
 
