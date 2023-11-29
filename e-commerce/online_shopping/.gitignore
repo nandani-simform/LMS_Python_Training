@@ -1,2 +1,4 @@
 .env
 structure.txt
+__pycache__/
+*.pyc
