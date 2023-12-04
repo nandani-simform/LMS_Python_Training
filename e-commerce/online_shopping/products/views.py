@@ -27,9 +27,6 @@ class CategoryView(APIView):
             return Response({'message':'Category deleted successfully'},status=status.HTTP_204_NO_CONTENT)
         except Category.DoesNotExist:
             raise Http404('Category does not exist')
-        
-
-    
 
 class AddProductView(APIView):
     

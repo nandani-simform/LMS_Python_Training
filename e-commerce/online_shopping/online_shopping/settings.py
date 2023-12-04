@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'online_shopping.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'e-commerce', 
+        'NAME': 'amazon', 
         'USER': config('PG_USER'),
         'PASSWORD': config('PG_PASSWORD'),
         'HOST': '127.0.0.1', 
