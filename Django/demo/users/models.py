@@ -39,3 +39,12 @@ class Person(models.Model):
     last_name = models.CharField(max_length=100)
     def __str__(self) -> str:
         return self.first_name
+
+
+class MyNewModel(models.Model):
+    my_field = models.CharField("Field Name",max_length=50, db_column='custom_column_name')
+    name = models.CharField(max_length=50, null=True, verbose_name='naam') #verbose name dono trh se likh skte h
+    class Meta:
+        db_table = '"naya_model"' #table ka naam in database
+        # verbose_name = 'hii'
+        verbose_name_plural = 'my name' #model name
