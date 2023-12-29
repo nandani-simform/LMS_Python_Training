@@ -37,8 +37,8 @@
                                 href="{% url 'about' %}">About</a>
                         </div>
                         <div class="navbar-nav">
-                            {% if user.is_authenticated %} {% if
-                            user.is_superuser %}
+                            {% if user.is_authenticated %} 
+                            {% if user.is_superuser %}
                             <a class="nav-item nav-link"
                                 href="{% url 'blog-create' %}">New Post</a>
                             {% endif %}
